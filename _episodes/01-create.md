@@ -26,7 +26,7 @@ We now know how to explore files and directories,
 but how do we create them in the first place?
 
 ### Step one: see where we are and what we already have
-Let's go back to our `data-shell` directory on the Desktop
+Let's go back to our `data-shell` directory 
 and use `ls -F` to see what it contains:
 
 ~~~
@@ -35,7 +35,7 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell
+/homes/kpegion/data-shell
 ~~~
 {: .output}
 
@@ -74,14 +74,6 @@ $ ls -F
 creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  thesis/  writing/
 ~~~
 {: .output}
-
-> ## Two ways of doing the same thing
-> Using the shell to create a directory is no different than using a file explorer.
-> If you open the current directory using your operating system's graphical file explorer,
-> the `thesis` directory will appear there too.
-> While the shell and the file explorer are two different ways of interacting with the files,
-> the files and directories themselves are the same.
-{: .callout}
 
 > ## Good names for files and directories
 >
@@ -139,17 +131,10 @@ $ nano draft.txt
 > many programmers use [Emacs](http://www.gnu.org/software/emacs/) or
 > [Vim](http://www.vim.org/) (both of which require more time to learn),
 > or a graphical editor such as
-> [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
-> use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in
-> editor called `notepad` that can be run from the command line in the same
-> way as `nano` for the purposes of this lesson.
+> [Gedit](http://projects.gnome.org/gedit/). 
 >
-> No matter what editor you use, you will need to know where it searches
-> for and saves files. If you start it from the shell, it will (probably)
-> use your current working directory as its default location. If you use
-> your computer's start menu, it may want to save files in your desktop or
-> documents directory instead. You can change this by navigating to
-> another directory the first time you 'Save As...'
+> No matter what editor you use on COLA, it will search and save files
+> to your current working directory as its default location.
 {: .callout}
 
 Let's type in a few lines of text.
@@ -206,37 +191,24 @@ draft.txt
 > ~~~
 > {: .language-bash}
 >
-> 1.  What did the `touch` command do?
->     When you look at your current directory using the GUI file explorer,
->     does the file show up?
+> 1.  What did the `touch` command do (Hint: use `ls`)?
 >
-> 2.  Use `ls -l` to inspect the files.  How large is `my_file.txt`?
->
-> 3.  When might you want to create a file this way?
+> 2.  How large is `my_file.txt`?
 >
 > > ## Solution
 > > 1.  The `touch` command generates a new file called `my_file.txt` in
-> >     your current directory.  You
-> >     can observe this newly generated file by typing `ls` at the
-> >     command line prompt.  `my_file.txt` can also be viewed in your
-> >     GUI file explorer.
+> >     your current directory. 
 > >
 > > 2.  When you inspect the file with `ls -l`, note that the size of
 > >     `my_file.txt` is 0 bytes.  In other words, it contains no data.
 > >     If you open `my_file.txt` using your text editor it is blank.
 > >
-> > 3.  Some programs do not generate output files themselves, but
-> >     instead require that empty files have already been generated.
-> >     When the program is run, it searches for an existing file to
-> >     populate with its output.  The touch command allows you to
-> >     efficiently generate a blank text file to be used by such
-> >     programs.
 > {: .solution}
 {: .challenge}
 
 > ## What's In A Name?
 >
-> You may have noticed that all of Nelle's files are named 'something dot
+> You may have noticed that all of the files we are working with  are named 'something dot
 > something', and in this part of the lesson, we always used the extension
 > `.txt`.  This is just a convention: we can call a file `mythesis` or
 > almost anything else we want. However, most people use two-part names
@@ -262,7 +234,7 @@ draft.txt
 Returning to the `data-shell` directory,
 
 ```
-cd ~/Desktop/data-shell/
+cd ~/data-shell/
 ```
 {: .language-bash}
 
