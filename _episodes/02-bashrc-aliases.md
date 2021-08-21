@@ -3,15 +3,15 @@ title: ".bashrc and aliases"
 teaching: 0
 exercises: 0
 questions:
-- "How do I use modify the .bashrc file?"
+- "How do I modify the .bashrc file?"
 objectives:
 - "Customize your bash experience."
 - "Define aliases to save you time and typing."
 keypoints:
 - "Unix shells can be launched in a customized way with the user's preferences."
 - "Aliases can be defined that substitute short strings for long or complex commands."
-
 ---
+
 ### .bashrc
 
 The bash shell allows for a great deal of customization including defining shortcuts for frequently used commands. 
@@ -60,16 +60,31 @@ A bit about the information shown when you perform a *verbose* file listing (i.e
 
 Note that files with names starting with a period are usually system files and are, by default, "hidden". They will not show up with a generic `ls` command unless the `-a` option is used or the file is explicitly named as we did above.
 
+### Adding aliases to .bashrc
 
+Edit `.bashrc` with your preferred editor.
 
-`ls` means list the contents of the current directory.
+Let's add some aliases. An alias is a command name that is defined to execute another command, set of commands, or execute a script. You can redefine an existing command name to have a different behavior, e.g., to make certain command options act as the defaults when they ordinarily are not. For example, add the following lines at end of the file, which will use the `alias` command to define aliases: 
+
 ~~~
-$ ls
+alias ls="ls -qx --color=always"
+alias ll="ls -al --color=always"
+alias lt="ls -alt --color=always | head -10"
 ~~~
 {: .language-bash}
 
+The `alias` command defines a command as the name on the left side of `=` everything that is in the quotation marks on the right, which enclose the command(s) as you would have typed it on the command line. Be sure there are no spaces on either side of `=`. This is a quirk of the `bash` language protocol. 
+
+* The first `alias` command redefines the default settings for the command `ls` so that it won't try to print *unprintable* characters in filenames (`-q`), it switches the way alphabetization is done, so it lists alphabetically across the columns on each line instead of down the columns (`x`) and uses colors to highlight the different kinds of files, directories and permissions (much like what `ls -F` accomplished with symbols).
+
+* The second line defines a new command `ll` that give a "long listing" of the directory contents (`-l`) including the hidden files (`-a`), also using colors.
+
+* The third defines `lt` to give a long listing of the last 10 files or directories to have been changed. This actually uses two commands and *pipes* the result of the `ls` command into the `head` command using the pipe `|`. Pipes are a powerful way to chain commands together into sophisticated operations.
+
+Save the file. The changes will not take effect in your current shell until you re-execute the commands in the `.bashrc` file. You do this with the `source` command:
+
 ~~~
-$ ls -F /
+$ source .bashrc
 ~~~
 {: .language-bash}
 
