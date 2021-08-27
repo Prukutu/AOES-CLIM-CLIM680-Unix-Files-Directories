@@ -483,7 +483,7 @@ can be combined with every other program that behaves this way as well.
 You can *and should* write your programs this way
 so that you and other people can put those programs into pipes to multiply their power.
 
-In the interest of time we have to end this episode here but if you are eager to work through some example exercises below follow the rest of this lesson <a href="http://swcarpentry.github.io/shell-novice/04-pipefilter/index.html">here</a>
+In the interest of time we have to end this episode here but if you are eager to work through some example exercises follow the rest of this lesson <a href="http://swcarpentry.github.io/shell-novice/04-pipefilter/index.html">here</a>
 
 <!--
 > ## Pipe Reading Comprehension
