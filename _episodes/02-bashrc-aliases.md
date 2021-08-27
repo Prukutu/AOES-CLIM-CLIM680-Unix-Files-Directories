@@ -93,7 +93,7 @@ The `alias` command defines a command as the name on the left side of `=` everyt
 
 * The third defines `lt` to give a long listing of the last 10 files or directories to have been changed. This actually uses two commands and *pipes* the result of the `ls` command into the `head` command using the pipe `|`. Pipes are a powerful way to chain commands together into sophisticated operations.
 
-Save the file. The changes will not take effect in your current shell until you re-execute the commands in the `.bashrc` file. You do this with the `source` command:
+Save the file. The changes will not take effect in your current shell until you re-execute the commands in the `.bashrc` file. You do this with the `source` command (Note that a logging out and back in again will also achieve this because bash runs the contents of the `.bashrc` file at each launch):
 
 ~~~
 $ source .bashrc
