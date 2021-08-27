@@ -385,7 +385,9 @@ what they discover about their data and their workflow with one call to `history
 and a bit of editing to clean up the output
 and save it as a shell script.
 
-## Nelle's Pipeline: Creating a Script
+In the interest of time we have to end this episode here but if you are eager to work through some example exercises follow the rest of this lesson <a href="http://swcarpentry.github.io/shell-novice/06-script/index.html">here</a>
+
+<!-- ## Nelle's Pipeline: Creating a Script
 
 
 Nelle's supervisor insisted that all her analytics must be reproducible. The easiest way to capture all the steps is in a script.
@@ -625,3 +627,4 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > an empty string.
 > {: .solution}
 {: .challenge}
+-->
