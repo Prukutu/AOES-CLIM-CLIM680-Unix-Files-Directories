@@ -1,7 +1,7 @@
 ---
 title: ".bashrc and aliases"
-teaching: 0
-exercises: 0
+teaching: 5
+exercises: 5
 questions:
 - "How do I modify the .bashrc file?"
 objectives:
