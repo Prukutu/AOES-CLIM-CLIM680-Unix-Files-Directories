@@ -46,15 +46,15 @@ A bit about the information shown when you perform a *verbose* file listing (i.e
   * The next 9 characters are 3 sets of 3 that each have the sequence `rwx` and describe the permissions.
     * `r` means *readable* (its contents can be viewed)
     * `w` means *writable* (its contents can be edited and changed)
-    * `x` means *executable* (it can be run on the computer)
+    * `x` means *executable* (it is allowed to run on the computer as a stand-alone program)
     * `-` means it is _not_ whichever above.
     
   * The 3 sets of 3 are, in order from left to right:
-    * The permissions for the user that owns the file (who created it, or this case ownership was assigned when the account was created).
-    * The permissions for any member of the "group" that owns the file (the user is a member of this group).
-    * The permissions for anyone who has an account on this computer.
+    * The permissions for the <u>user</u> that owns the file (who created it, or this case ownership was assigned when the account was created).
+    * The permissions for <u>any member of the "group"</u> that owns the file (the user is a member of this group).
+    * The permissions for <u>anyone</u> who has an account on this computer.
     
-  * In this example, `-rw-------` means this is a _file_ that only the reader can read and write. No one else would be able to view or change the contents of this file.
+  * In this example, `-rw-------` means this is a _file_ that only the owner can read and write. No one else would be able to view or change the contents of this file.
 
   A user can change the permissions of any file or directory they own.
   
@@ -62,21 +62,23 @@ A bit about the information shown when you perform a *verbose* file listing (i.e
 
 * `jdoe123` is the username of the owner. This is the person who can change file permissions.
 
-* `users` is the group name. A user may belong to multiple groups (e.g., different groups can be set up for different projects with different members), but a directory or file can only be owned by one group, just as it can only be owned by one user.
+* `users` here is the group name. A user may belong to multiple groups (e.g., different groups can be set up for different projects with different members), but a directory or file can only be owned by one group, just as it can only be owned by one user.
 
 * `520` is the size of the file in bytes.
 
-* `Aug 21 13:16` is the time the file was altered and saved. After about 6 months without any changes, the timestamp disappears and is replaced by the year.
+* `Aug 21 13:16` is the time the file was last altered and saved. After about 6 months without any changes, the timestamp disappears and is replaced by the year.
 
 * `.bashrc` is the file name.
 
-Note that files with names starting with a period are usually system files and are, by default, "hidden". They will not show up with a generic `ls` command unless the `-a` option is used or the file is explicitly named as we did above.
+Note that files with names starting with a period are usually system files and are, by default, "hidden". They will not show up with the `ls` command unless the `-a` option is used or the file is explicitly named as we did above.
 
 ### Adding aliases to .bashrc
 
 Edit `.bashrc` with your preferred editor.
 
-Let's add some aliases. An alias is a command name that is defined to execute another command, set of commands, or execute a script. You can redefine an existing command name to have a different behavior, e.g., to make certain command options act as the defaults when they ordinarily are not. For example, add the following lines at end of the file, which will use the `alias` command to define aliases: 
+Let's add some aliases. An alias is a command name that is defined to execute another command, set of commands (e.g., using pipes), or execute a script. You can also redefine an existing command name to have a different behavior, e.g., to make certain command options act as the defaults when they ordinarily are not. For example, you could redefine the `rm` command with the alias `rm -i` so that typing simply `rm` would always ask for confirmation before deleting files.
+
+You could add the following lines at end of the `.bashrc. file, which will use the `alias` command to define aliases: 
 
 ~~~
 alias ls="ls -qx --color=always"
