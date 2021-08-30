@@ -50,7 +50,7 @@ On your personal computer, you can open a new terminal session and generate a SS
 To check, type:
 
 ~~~
-$ cd ~/.ssh
+$ ls ~/.ssh
 ~~~
 {: .language-bash}
 
@@ -133,7 +133,7 @@ Where `username` is your username.
 You should see a message like this:
 
 ~~~
-The authenticity of host 'cola1.gmu.edu (129.174.129.11)' can't be established.
+The authenticity of host 'cola1.gmu.edu (129.174.129.11)' cant be established.
 ECDSA key fingerprint is fd:fd:d4:f9:77:fe:73:84:e1:55:00:ad:d6:6d:22:fe.
 Are you sure you want to continue connecting (yes/no)?
 ~~~
