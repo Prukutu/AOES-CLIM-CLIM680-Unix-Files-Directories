@@ -1,7 +1,7 @@
 ---
 title: "Finding Things"
 teaching: 25
-exercises: 20
+exercises: 0 (DOYO)
 questions:
 - "How can I find files?"
 - "How can I find things in files?"
@@ -17,6 +17,8 @@ keypoints:
 - "`man [command]` displays the manual page for a given command."
 - "`$([command])` inserts a command's output in place."
 ---
+
+## `grep`
 
 In the same way that many of us now use 'Google' as a
 verb meaning 'to find', Unix programmers often use the
@@ -52,16 +54,6 @@ Today it is not working
 Software is like that.
 ~~~
 {: .output}
-
-<!––
-> ## Forever, or Five Years
->
-> We haven't linked to the original haikus because they don't appear to be on *Salon*'s site any longer.
-> As [Jeff Rothenberg said](https://www.clir.org/wp-content/uploads/sites/6/ensuring.pdf),
-> 'Digital information lasts forever --- or five years, whichever comes first.'
-> Luckily, popular content often [has backups](http://wiki.c2.com/?ComputerErrorHaiku).
-{: .callout}
--->
 
 
 Let's find lines that contain the word 'not':
@@ -159,7 +151,7 @@ For example, let's find the lines that contain the word 'the'. We can combine
 the option `-w` to find the lines that contain the word 'the' and `-n` to number the lines that match:
 
 ~~~
-$ grep -n -w "the" haiku.txt
+$ grep -nw "the" haiku.txt
 ~~~
 {: .language-bash}
 
@@ -172,7 +164,7 @@ $ grep -n -w "the" haiku.txt
 Now we want to use the option `-i` to make our search case-insensitive (i.e., _ignore_ case):
 
 ~~~
-$ grep -n -w -i "the" haiku.txt
+$ grep -nwi "the" haiku.txt
 ~~~
 {: .language-bash}
 
@@ -187,7 +179,7 @@ Now, we want to use the option `-v` to invert our search, i.e., we want to outpu
 the lines that do not contain the word 'the'.
 
 ~~~
-$ grep -n -w -v "the" haiku.txt
+$ grep -nwv "the" haiku.txt
 ~~~
 {: .language-bash}
 
@@ -410,6 +402,8 @@ Miscellaneous:
 > > (though in this case, it doesn't affect the answer to which sister is mentioned most frequently).
 > {: .solution}
 {: .challenge}
+
+## `find`
 
 While `grep` finds lines in files,
 the `find` command finds files themselves.
