@@ -166,7 +166,7 @@ $ grep -n -w "the" haiku.txt
 ~~~
 {: .output}
 
-Now we want to use the option `-i` to make our search case-insensitive:
+Now we want to use the option `-i` to make our search case-insensitive (i.e., _ignore_ case):
 
 ~~~
 $ grep -n -w -i "the" haiku.txt
@@ -274,7 +274,7 @@ Miscellaneous:
 >
 > `grep`'s real power doesn't come from its options, though; it comes from
 > the fact that patterns can include wildcards. (The technical name for
-> these is **regular expressions**, which
+> these is **regular expressions** (sometimes called _regexp_ or _regex_), which
 > is what the 're' in 'grep' stands for.) Regular expressions are both complex
 > and powerful; if you want to do complex searches, please look at the lesson
 > on [our website](http://v4.software-carpentry.org/regexp/index.html). As a taster, we can
