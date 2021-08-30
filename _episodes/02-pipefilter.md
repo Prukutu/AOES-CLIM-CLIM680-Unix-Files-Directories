@@ -1,5 +1,5 @@
 ---
-title: "Pipes and Filters"
+title: "Redirects, Pipes and Filters"
 teaching: 15
 exercises: 5
 questions:
