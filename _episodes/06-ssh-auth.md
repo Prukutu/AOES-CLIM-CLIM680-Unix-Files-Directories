@@ -1,6 +1,6 @@
 ---
 title: "SSH Authentication"
-teaching: 0
+teaching: 15
 exercises: 0
 questions:
 - "Why use SSH key authentication?"
