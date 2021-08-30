@@ -18,7 +18,7 @@ keypoints:
 - "`$([command])` inserts a command's output in place."
 ---
 
-## `grep`
+### `grep`
 
 In the same way that many of us now use 'Google' as a
 verb meaning 'to find', Unix programmers often use the
@@ -403,7 +403,7 @@ Miscellaneous:
 > {: .solution}
 {: .challenge}
 
-## `find`
+### `find`
 
 While `grep` finds lines in files,
 the `find` command finds files themselves.
