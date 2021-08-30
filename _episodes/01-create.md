@@ -620,6 +620,17 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > file names matching these expressions, but not the wildcards
 > themselves. It is the shell, not the other programs, that deals with
 > expanding wildcards, and this is another example of orthogonal design.
+> 
+> There are many other, fancier wildcards as well. For example:
+> 
+> `[0-9]` will match only numbers
+> 
+> `[a-Z]` will match any letters of either case. 
+> Unix alphabetizes as aAbBcCdD..zZ, so the mixed cases `a` and `Z` are necessary to include all the letters in the range.
+> 
+> `[[:lower:]]` will match only lower-case letters
+> 
+> `[[:upper:]]` will match only upper case letters
 {: .callout}
 
 > ## List filenames matching a pattern
