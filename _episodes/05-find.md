@@ -53,6 +53,7 @@ Software is like that.
 ~~~
 {: .output}
 
+<!––
 > ## Forever, or Five Years
 >
 > We haven't linked to the original haikus because they don't appear to be on *Salon*'s site any longer.
@@ -60,6 +61,8 @@ Software is like that.
 > 'Digital information lasts forever --- or five years, whichever comes first.'
 > Luckily, popular content often [has backups](http://wiki.c2.com/?ComputerErrorHaiku).
 {: .callout}
+-->
+
 
 Let's find lines that contain the word 'not':
 
