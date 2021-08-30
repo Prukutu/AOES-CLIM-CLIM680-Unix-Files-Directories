@@ -6,7 +6,7 @@ questions:
 - "How can I create, copy, and delete files and directories?"
 - "How can I edit files?"
 objectives:
-- "Create a directory hierarchy that matches a given diagram."
+- "Create a directory hierarchy that matches a given structure."
 - "Create files in that hierarchy using an editor or by copying and renaming existing files."
 - "Delete, copy and move specified files and/or directories."
 keypoints:
@@ -133,12 +133,12 @@ $ nano draft.txt
 > or a graphical editor such as
 > [Gedit](http://projects.gnome.org/gedit/). 
 >
-> No matter what editor you use on COLA, it will search and save files
+> No matter what editor you use on COLA, it will search within and save files
 > to your current working directory as its default location.
 {: .callout}
 
 Let's type in a few lines of text.
-Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd>
+Once we're happy with our text, in `nano` we can press <kbd>Ctrl</kbd>+<kbd>O</kbd>
 (press the <kbd>Ctrl</kbd> or <kbd>Control</kbd> key and, while
 holding it down, press the <kbd>O</kbd> key) to write our data to disk
 (we'll be asked what file we want to save this to:
@@ -149,11 +149,11 @@ press <kbd>Return</kbd> to accept the suggested default of `draft.txt`).
 Once our file is saved, we can use <kbd>Ctrl</kbd>+<kbd>X</kbd> to quit the editor and
 return to the shell.
 
-> ## Control, Ctrl, or ^ Key
+> ## The Control, `Ctrl`, or `^` Key
 >
-> The Control key is also called the 'Ctrl' key. There are various ways
+> The Control key is often labeled the `Ctrl` key on the keyboard. There are various ways
 > in which using the Control key may be described. For example, you may
-> see an instruction to press the <kbd>Control</kbd> key and, while holding it down,
+> see an instruction to press the <kbd>Ctrl</kbd> key and, while holding it down,
 > press the <kbd>X</kbd> key, described as any of:
 >
 > * `Control-X`
@@ -163,7 +163,7 @@ return to the shell.
 > * `^X`
 > * `C-x`
 >
-> In nano, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
+> In `nano`, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
 > This means that you can use `Control-G` to get help and `Control-O` to save your
 > file.
 {: .callout}
@@ -344,7 +344,7 @@ quotes.txt
 ## Copying files and directories
 
 The `cp` command works very much like `mv`,
-except it copies a file instead of moving it.
+except it makes a duplicate copy of a file instead of moving it.
 We can check that it did the right thing using `ls`
 with two paths as arguments --- like most Unix commands,
 `ls` can be given multiple paths at once:
@@ -505,8 +505,8 @@ ls: cannot access 'quotes.txt': No such file or directory
 > > ```
 > > {: .language-bash}
 > > The `-i` option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion or <kbd>N</kbd> to keep the file).
-> > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
 > > By using the `-i` option, we have the chance to check that we are deleting only the files that we want to remove.
+> > Some organizations' Unix systems have this option set by default - the COLA system does not! So be careful with the `rm` command.
 > {: .solution}
 {: .challenge}
 
@@ -536,6 +536,14 @@ $ rm -r thesis
 
 Given that there is no way to retrieve files deleted using the shell,
 `rm -r` *should be used with great caution* (you might consider adding the interactive option `rm -r -i`).
+
+To remove an empty directory, you can use the `rmdir` command:
+
+~~~
+$ rmdir thesis
+~~~
+{: .language-bash}
+
 
 ## Operations with multiple files and directories
 
