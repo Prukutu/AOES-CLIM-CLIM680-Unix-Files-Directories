@@ -285,6 +285,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 ~~~
 {: .output}
 
+<!--
 > ## List Unique Species
 >
 > Leah has several hundred data files, each of which is formatted like this:
@@ -325,7 +326,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > > {: .source}
 > {: .solution}
 {: .challenge}
-
+-->
 
 Suppose we have just run a series of commands that did something useful --- for example,
 that created a graph we'd like to use in a paper.
