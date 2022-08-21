@@ -81,9 +81,9 @@ Let's add some aliases. An alias is a command name that is defined to execute an
 You could add the following lines at end of the `.bashrc. file, which will use the `alias` command to define aliases: 
 
 ~~~
-alias ls="ls -qx --color=always"
+alias ls="ls -xF --color=always"
 alias ll="ls -al --color=always"
-alias lt="ls -alt --color=always | head -10"
+alias lt="ls -alt | head -10"
 ~~~
 {: .language-bash}
 
@@ -121,5 +121,5 @@ alias lt='ls -alt --color=always | head -10'
 
 You can also define an alias by directly typing its definition on the command line. But once you log out (or if your connection is dropped), the alias definition would disappear.
 
-You can make many customizations in addition to defining aliases. You can define the list directories that are in your default PATH when conducting searches for executables, change the way your command line prompt appears, or preload software libraries, to name a few. 
+You can make many customizations in addition to defining aliases. You can define the list directories that are in your default PATH when conducting searches for executables, change the way your command line prompt appears, or preload software librariesand modules, to name a few. Anything you would like to have in your computing environment automatically every time should be added to your `.bashrc` file.
 
