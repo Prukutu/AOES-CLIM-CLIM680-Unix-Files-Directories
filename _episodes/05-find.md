@@ -1,6 +1,6 @@
 ---
 title: "Finding Things"
-teaching: 25
+teaching: 15
 exercises: 0 (DOYO)
 questions:
 - "How can I find files?"
