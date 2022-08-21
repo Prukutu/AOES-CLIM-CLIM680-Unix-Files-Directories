@@ -296,10 +296,10 @@ the output of `head` must be the file with the fewest lines.
 > the contents of `lengths.txt`.
 {: .callout}
 
-> ## What Does `>>` Mean?
+> ## Recall, What Does `>>` Mean?
 >
-> We have seen the use of `>`, but there is a similar operator `>>` which works slightly differently.
-> We'll learn about the differences between these two operators by printing some strings.
+> Let's review the use of `>` and `>>`.
+> We'll see the differences between these two operators by printing some strings.
 > We can use the `echo` command to print strings e.g.
 >
 > ~~~
