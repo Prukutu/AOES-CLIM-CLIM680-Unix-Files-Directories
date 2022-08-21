@@ -1,6 +1,6 @@
 ---
 title: "Editing Files"
-teaching: 10
+teaching: 5
 exercises: 5
 questions:
 - "How can I edit files?"
