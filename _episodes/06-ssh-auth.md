@@ -6,19 +6,19 @@ questions:
 - "Why use SSH key authentication?"
 - "How do I set up SSH key authentication?"
 objectives:
-- "Set up SSH key authentication between your laptop and COLA servers."
+- "Set up SSH key authentication between your laptop and the ORC cluster."
 keypoints:
-- "Unix shells can be launched in a customized way with the user's preferences."
-- "Aliases can be defined that substitute short strings for long or complex commands."
+- "SSH key authentication enhances security."
+- "SSH key authentication reduces the frustration of repeatedly typing passwords."
 ---
 
 ### What is SSH and what are SSH keys?
 
 SSH, or secure shell, is an encrypted protocol used to communicate remotely with servers from another computer. 
-When working on Unix or Linux servers like the COLA computers, you will frequently be connecting via terminal sessions using SSH.
+When working on Unix or Linux servers like the ORC computing system, you will frequently be connecting via terminal sessions using SSH.
 
 SSH keys provide an extremely secure way of logging in that does not require remembering and typing your password each time. 
-It is highly recommended as a safe, secure, and more convenient way to work on the COLA computers from your personal computer.
+It is highly recommended as a safe, secure, and more convenient way to work on remote computing systems from your personal computer.
 
 ### How does an SSH key work?
 
@@ -26,7 +26,7 @@ Surprisingly, password authentication is not the most secure way to use SSH.
 Although passwords are sent between client (your laptop) and server securely, they are usually not complex or long enough to resist hacking. 
 Plus, passwords are vulnerable to being stolen visually by prying eyes or inattentive habits like keeping passwords written on a piece of paper. 
 
-SSH key pairs are two cryptographically secure keys that can be used for authentication between an SSH client and an SSH server. 
+SSH key pairs are two cryptographically secure keys that can be used for authentication between an SSH client (e.g., your laptop) and an SSH server (e.g., HOPPER). 
 Each key pair consists of a public key and a private key. The private key is kept by the client. 
 Any compromise of the private key will allow an attacker to access servers that are configured with the associated public key, so it should be kept secure and private. 
 As an additional precaution, the key can be encrypted with a passphrase which makes this approach twice as secure.
@@ -96,8 +96,8 @@ Enter passphrase (empty for no passphrase):
 {: .language-bash}
 
 This can be used to encrypt the private key file on disk. 
-This provides an extra layer of protection in case your laptop is stolen, hacked or infected with certain malware, 
-helping to prevent an attacker from further gaining access to your COLA computing (or any other SSH key authenticated) account.
+This provides an extra layer of protection in case your laptop is lost or stolen, hacked or infected with certain malware, 
+helping to prevent an attacker from further gaining access to your GMU computing (or any other SSH key authenticated) account.
 Advantages include:
 
 * The private SSH key is never exposed on the network. The passphrase is only used to decrypt the key on your computer locally. 
@@ -116,15 +116,15 @@ Once you have completed creating your private and public key pair, you will get 
 
 ### Copying the public key to your server<a id="skip_rsa"> </a>
 
-There are several ways to upload your public key to the COLA computer. 
-We describe two, the easiest and the most surefire. 
+There are several ways to upload your public key to the ORC computing system. 
+Here we describe three. 
 
 #### Using ssh-copy-id
 The easiest way, if the command is available on your computer, is to use the `ssh-copy-id` command.
 The syntax is:
 
 ~~~
-$ ssh-copy-id username@cola1.gmu.edu
+$ ssh-copy-id username@hopper.orc.gmu.edu
 ~~~
 {: .language-bash}
 
@@ -133,7 +133,7 @@ Where `username` is your username.
 You should see a message like this:
 
 ~~~
-The authenticity of host 'cola1.gmu.edu (129.174.129.11)' cant be established.
+The authenticity of host 'hopper.orc.gmu.edu (129.174.21.176)' cant be established.
 ECDSA key fingerprint is fd:fd:d4:f9:77:fe:73:84:e1:55:00:ad:d6:6d:22:fe.
 Are you sure you want to continue connecting (yes/no)?
 ~~~
@@ -142,20 +142,67 @@ Are you sure you want to continue connecting (yes/no)?
 The hexcode in the "fingerprint" will be different for you, but this is the expected message the first time you connect to a new host in this way.
 Type `yes` and press ENTER to continue. 
 
-Next, you will be prompted for the password on the COLA servers. type it in and press ENTER. You are done! 
-You will not have to enter your password again until it expires or you change your key.
+Next, you will be prompted for your password. type it in and press ENTER. You are done! 
+You will not have to enter your password on HOPPER again until it expires or if you change your key (e.g., if you get a new laptop).
+
+#### Using scp 
+If `ssh-copy-id` isn't working, you can copy the public key to HOPPER and append it to your `authorized_keys` file.
+The `scp` command (secure copy) uses ssh security to copy files and directories between computers. 
+The syntax when securely copying a file from your laptop to HOPPER is:
+
+~~~
+$ scp local_filename username@hopper.orc.gmu.edu:path/to/destination
+~~~
+{: .language-bash}
+
+Where `local_filename` would be the file on your laptop 
+(including the path if you do not execute the `scp` command from the directory containing the file),
+`username` is your username, and `path/to/destination` is the remote path if the destination is not your home directory.
+
+In this specific case, first make sure that the ~/.ssh directory exists on HOPPER. If it does not, create it:
+
+~~~
+$ mkdir ~/.ssh
+~~~
+{: .language-bash}
+
+From a terminal session on your personal computer:
+
+~~~
+$ cd ~/.ssh
+$ scp id_rsa.pub username@hopper.orc.gmu.edu:~/.ssh/laptop.pub
+~~~
+{: .language-bash}
+
+To execute the `scp` command, you will be asked for your password on HOPPER.
+
+Once completed, from the terminal session on HOPPER:
+
+~~~
+$ cd ~/.ssh
+$ cat laptop.pub >> authorized_keys
+$ rm laptop.pub
+~~~
+{: .language-bash}
+
+You can `cat` or edit the file `authorized_keys` and see that there is now a line
+containing three elements in sequence:
+* `ssh-rsa`
+* A long string of random letters, numbers and symbols, starting with `AAAA`
+* An identifier of your laptop, including your account on your laptop if it has been set up that way.
+
 
 #### Manually copying your public key
-If the approach above does not work for you, you can do the above process manually. 
-The content of your `id_rsa.pub` file will have to be added to a file at ~/.ssh/authorized_keys on the COLA computer system.
-To display the content of your id_rsa.pub key, type this into your local computer:
+If the approaches above do not work for you, you can do the above process manually. 
+The content of your `id_rsa.pub` file can be added manually to the file ~/.ssh/authorized_keys on HOPPER.
+To display the content of your id_rsa.pub key, type this into your local computer's terminal session:
 
 ~~~
 $ cat ~/.ssh/id_rsa.pub
 ~~~
 {: .language-bash}
 
-You will see the key’s content, which may look something like this:
+You will see the key’s content, which will look something like this:
 
 ~~~
 ~/.ssh/id_rsa.pub
@@ -163,7 +210,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCqql6MzstZYh1TmWWv11q5O3pISj2ZFl9HgH1JLknL
 ~~~
 {: .language-bash}
  
-Open a new terminal window and `ssh` into `cola1.gmu.edu` using your password.
+Go to the HOPPER terminal window (launch one if you do not have one open).
 Make sure that the ~/.ssh directory exists. If it does not, create it:
 
 ~~~
@@ -175,7 +222,7 @@ Now, you can create or modify the authorized_keys file within this directory.
 You can paste the contents of your id_rsa.pub file to the end of the authorized_keys file, creating it if necessary, using this:
 
 ~~~
-$ echo [public_key_string] >> ~/.ssh/authorized_keys
+$ echo "[public_key_string]" >> ~/.ssh/authorized_keys
 ~~~
 {: .language-bash}
 
@@ -185,20 +232,20 @@ You can use ctl-C (or on Mac, cmd-C) to copy and ctl-V (cmd-V) to past the text 
 
 ### Authenticating using SSH keys
 
-Now you should be able to log into any of the COLA computers (not only `cola1`) without a password!
+Now you should be able to log into any of the ORC login nodes without typing a password every time!
 
-The process is mostly the same as what you have already done. For example, for `cola1`:
+The process is mostly the same as what you have already done. For example:
 
 ~~~
-$ ssh -Y -l username@cola1.gmu.edu
+$ ssh -Y username@hopper.orc.gmu.edu
 ~~~
 {: .language-bash}
 
-If you used the manual copy method above, 
-you may see something like this:
+If you used the `scp` or manual copy method above, 
+you may see something like this the first time you try to login:
 
 ~~~
-The authenticity of host 'cola1.gmu.edu (129.174.129.11)' can't be established.
+The authenticity of host 'hopper.orc.gmu.edu (129.174.21.176)' can't be established.
 ECDSA key fingerprint is fd:fd:d4:f9:77:fe:73:84:e1:55:00:ad:d6:6d:22:fe.
 Are you sure you want to continue connecting (yes/no)?
 ~~~
@@ -206,10 +253,6 @@ Are you sure you want to continue connecting (yes/no)?
 
 The hexcode in the "fingerprint" will be different for you, but this is the expected message the first time you connect to a new host in this way.
 Type `yes` and press ENTER to continue. 
-
-This kind of message will show up the first time you log into any of the COLA servers `cola1` through `cola7`. 
-But since they all share the same file system, your home directory (and its contents) are indentical on all COLA servers, 
-you don't have to copy your public key to each one. 
 
 If you did not supply a passphrase for your private key, you will be logged in immediately. 
 If you supplied a passphrase for the private key when you created the key, you will be required to enter it now. 
