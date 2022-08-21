@@ -1,6 +1,6 @@
 ---
 title: "Redirects, Pipes and Filters"
-teaching: 15
+teaching: 10
 exercises: 5
 questions:
 - "How can I combine existing commands to do new things?"
