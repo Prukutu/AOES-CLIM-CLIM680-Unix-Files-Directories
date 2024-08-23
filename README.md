@@ -1,6 +1,6 @@
 # CLIM Class Lessons
 
-This repository generates lessons used in Kathy Pegion's open source classes in the Department of Atmospheric, Oceanic, and Earth Sciences at George Mason University. 
+This repository generates lessons used in the Climate Data open source classes in the Department of Atmospheric, Oceanic, and Earth Sciences at George Mason University. 
 
 ## Contributing
 
